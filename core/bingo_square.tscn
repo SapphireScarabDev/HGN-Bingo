@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://cr340kge0q862"]
+
+[ext_resource type="Script" path="res://core/bingo_square.gd" id="1_4tmc7"]
+[ext_resource type="StyleBox" uid="uid://dhobaii4mg80t" path="res://themes/default/button_normal.tres" id="2_ax2l8"]
+[ext_resource type="StyleBox" uid="uid://bh1bsg4ac6ul7" path="res://themes/default/button_hover.tres" id="3_ysqid"]
+[ext_resource type="StyleBox" uid="uid://umhtmqmrjve5" path="res://themes/default/button_pressed.tres" id="4_dmx0q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4psjt"]
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Bingo Square" type="Control"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 120.0
+offset_bottom = 120.0
+script = ExtResource("1_4tmc7")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_styles/normal = ExtResource("2_ax2l8")
+theme_override_styles/hover = ExtResource("3_ysqid")
+theme_override_styles/pressed = ExtResource("4_dmx0q")
+toggle_mode = true
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hello there fellow humans!"
+label_settings = SubResource("LabelSettings_4psjt")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="toggled" from="Button" to="." method="_on_button_toggled"]
